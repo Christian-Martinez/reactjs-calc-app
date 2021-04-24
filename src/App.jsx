@@ -9,15 +9,16 @@ import './App.css';
 
 const App = () => {
   const [stack, setStack] = useState('');
-
   // retorna un array de numeros sin los signos
   const items = words(stack, /[^-^+^*^/]+/g);
+  // validacion
+  const value = items.length > 0 ? items[items.length - 1] : '0';
   // Lo que ejecuta la función
-  console.log('Renderización de App', items);
+  console.log('Renderización de App', value);
 
   return (
     <main className='react-calculator'>
-      <Result value={items[items.length - 1]} />
+      <Result value={value} />
       <Numbers
         onClickNumber={(number) => {
           console.log('Click en number', number);
